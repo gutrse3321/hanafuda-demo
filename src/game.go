@@ -1,11 +1,11 @@
 package src
 
 import (
-	"font/common"
-	"font/common/constant"
-	"font/sprites"
-	"font/src/scenes"
 	"github.com/hajimehoshi/ebiten"
+	"hanafuda/common"
+	"hanafuda/common/constant"
+	"hanafuda/sprites"
+	"hanafuda/src/scenes"
 	"image/color"
 )
 

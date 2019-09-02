@@ -1,10 +1,10 @@
 package common
 
 import (
-	"font/resources/fonts"
 	"github.com/golang/freetype"
 	"github.com/golang/freetype/truetype"
 	"golang.org/x/image/font"
+	"hanafuda/resources/fonts"
 	"io/ioutil"
 	"log"
 )

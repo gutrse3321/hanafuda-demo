@@ -1,9 +1,9 @@
 package main
 
 import (
-	"font/common/constant"
-	"font/src"
 	"github.com/hajimehoshi/ebiten"
+	"hanafuda/common/constant"
+	"hanafuda/src"
 	"log"
 )
 

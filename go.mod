@@ -1,4 +1,4 @@
-module font
+module hanafuda
 
 go 1.12
 

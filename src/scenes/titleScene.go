@@ -1,11 +1,11 @@
 package scenes
 
 import (
-	"font/common"
-	"font/common/constant"
-	"font/sprites"
 	"github.com/hajimehoshi/ebiten"
 	"github.com/hajimehoshi/ebiten/text"
+	"hanafuda/common"
+	"hanafuda/common/constant"
+	"hanafuda/sprites"
 	"image/color"
 )
 

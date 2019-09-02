@@ -2,8 +2,8 @@ package sprites
 
 import (
 	"bytes"
-	"font/resources/textures"
 	"github.com/hajimehoshi/ebiten"
+	"hanafuda/resources/textures"
 	"image"
 	_ "image/png"
 	"log"
