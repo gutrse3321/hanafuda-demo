@@ -5,20 +5,19 @@ import (
 	"font/resources/textures"
 	"github.com/hajimehoshi/ebiten"
 	"image"
+	_ "image/png"
 	"log"
 )
 
-const (
-	FudaW     = 70
-	FudaH     = 113
-	FudaSpace = 4
-)
-
 var (
-	CardImage *ebiten.Image
+	CardImage  *ebiten.Image
+	TitleImage *ebiten.Image
 )
 
-type Sprite struct {
+type Sprites struct {
+}
+
+type Card struct {
 	ImageWidth  int
 	ImageHeight int
 	X           int
@@ -29,15 +28,30 @@ type Sprite struct {
 	Tag         string
 }
 
-type Sprites struct {
-	SpriteArr []*Sprite
+type Cards struct {
+	SpriteArr []*Card
 	Num       int
 }
 
-func init() {
+type Title struct {
+	ImageWidth  int
+	ImageHeight int
+	X           int
+	Y           int
+	Vx          int
+	Vy          int
+}
+
+func (s *Sprites) Init() {
 	img, _, err := image.Decode(bytes.NewReader(textures.Texture_card))
 	if err != nil {
 		log.Fatal(err)
 	}
 	CardImage, _ = ebiten.NewImageFromImage(img, ebiten.FilterDefault)
+
+	titleImg, _, err := image.Decode(bytes.NewReader(textures.Texture_title))
+	if err != nil {
+		log.Fatal(err)
+	}
+	TitleImage, _ = ebiten.NewImageFromImage(titleImg, ebiten.FilterDefault)
 }
