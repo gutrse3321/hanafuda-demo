@@ -30,6 +30,8 @@ func (g *Game) Update(screen *ebiten.Image) error {
 		gameScene := scenes.Game{}
 		gameScene.Update(screen)
 	case constant.ModeGameOver:
+		overScene := scenes.Over{}
+		overScene.Update(screen)
 	}
 
 	if ebiten.IsDrawingSkipped() {

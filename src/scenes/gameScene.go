@@ -17,4 +17,9 @@ func (t *Game) Update(screen *ebiten.Image) {
 	jan0W, jan0H := sprites.CardSprites.SpriteArr[0].Texture.Size()
 	op.GeoM.Translate(float64(constant.ScreenWidth/2)-float64(jan0W/2), float64(jan0H)/2.0)
 	screen.DrawImage(sprites.CardSprites.SpriteArr[0].Texture, op)
+
+	//input
+	if ebiten.IsKeyPressed(ebiten.KeyF1) {
+		constant.GameMode = constant.ModeGameOver
+	}
 }
