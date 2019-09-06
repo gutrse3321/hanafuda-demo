@@ -14,10 +14,13 @@ var FontObject *Font
 type Font struct {
 	FontFiraCode font.Face
 	FontHuakang  font.Face
+
+	FontHuakangM  font.Face
+	FontFiraCodeM font.Face
 }
 
 var (
-	TitleMenuString = "按回车开始"
+	TitleMenuString = "Press Enter to Start"
 )
 
 func (f *Font) Init() {
@@ -33,6 +36,9 @@ func (f *Font) Init() {
 	}
 
 	const dpi = 72
+	/**
+	normal size
+	*/
 	f.FontFiraCode = truetype.NewFace(tt, &truetype.Options{
 		Size:    24,
 		DPI:     dpi,
@@ -43,6 +49,22 @@ func (f *Font) Init() {
 		DPI:     dpi,
 		Hinting: font.HintingFull,
 	})
+
+	/**
+	M
+	small size
+	*/
+	f.FontFiraCodeM = truetype.NewFace(tt, &truetype.Options{
+		Size:    12,
+		DPI:     dpi,
+		Hinting: font.HintingFull,
+	})
+	f.FontHuakangM = truetype.NewFace(ttH, &truetype.Options{
+		Size:    12,
+		DPI:     dpi,
+		Hinting: font.HintingFull,
+	})
+
 	FontObject = f
 }
 
