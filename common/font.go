@@ -67,17 +67,3 @@ func (f *Font) Init() {
 
 	FontObject = f
 }
-
-//const x = 20
-//
-//// Draw info
-//msg := fmt.Sprintf("TPS: %0.2f", ebiten.CurrentTPS())
-//text.Draw(screen, msg, firaCodeInfo, x, 40, color.White)
-//
-//// Draw the sample text
-//text.Draw(screen, sampleText, firaCodeInfo, x, 80, color.White)
-//
-//// Draw Kanji text lines
-//for i, line := range strings.Split(string(kanjiText), "\n") {
-//text.Draw(screen, line, huakang, x, 160+54*i, kanjiTextColor)
-//}

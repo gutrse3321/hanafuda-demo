@@ -14,13 +14,13 @@ var (
 	CardImage  *ebiten.Image
 	TitleImage *ebiten.Image
 
-	CardSprites *Cards
+	CardSprites map[string]card
 )
 
 type Sprites struct {
 }
 
-type Card struct {
+type card struct {
 	Texture     *ebiten.Image
 	ImageWidth  int
 	ImageHeight int
@@ -30,10 +30,6 @@ type Card struct {
 	Vy          int
 	Angle       int
 	Tag         string
-}
-
-type Cards struct {
-	SpriteArr []*Card
 }
 
 func (s *Sprites) Init() {
@@ -46,7 +42,7 @@ func (s *Sprites) Init() {
 	x := 0
 	y := 0
 	count := 0
-	cards := &Cards{}
+	cards := make(map[string]card)
 	for {
 		if count+1 > constant.CountFuda {
 			break
@@ -56,13 +52,13 @@ func (s *Sprites) Init() {
 			y++
 		}
 
-		sx := x * constant.Wfuda
-		sy := y * constant.Hfuda
+		sx := x*constant.Wfuda + constant.WFudaSpace*x
+		sy := y*constant.Hfuda + constant.WFudaSpace*y
 		fudaItem := CardImage.SubImage(image.Rect(sx, sy, sx+constant.Wfuda, sy+constant.Hfuda)).(*ebiten.Image)
-		cards.SpriteArr = append(cards.SpriteArr, &Card{
+		cards[constant.TagFuda[count]] = card{
 			Texture: fudaItem,
 			Tag:     constant.TagFuda[count],
-		})
+		}
 
 		x++
 		count++

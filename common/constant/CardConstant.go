@@ -4,8 +4,8 @@ const (
 	CountFuda = 50
 
 	Wfuda      = 70
-	Hfuda      = 113
-	WFudaSpace = 4
+	Hfuda      = 112
+	WFudaSpace = 2
 )
 
 var (
