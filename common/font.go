@@ -12,6 +12,9 @@ import (
 var FontObject *Font
 
 type Font struct {
+	FontFiraCodeBig font.Face
+	FontHuakangBig  font.Face
+
 	FontFiraCode font.Face
 	FontHuakang  font.Face
 
@@ -36,6 +39,20 @@ func (f *Font) Init() {
 	}
 
 	const dpi = 72
+	/**
+	big size
+	*/
+	f.FontFiraCodeBig = truetype.NewFace(tt, &truetype.Options{
+		Size:    48,
+		DPI:     dpi,
+		Hinting: font.HintingFull,
+	})
+	f.FontHuakangBig = truetype.NewFace(ttH, &truetype.Options{
+		Size:    48,
+		DPI:     dpi,
+		Hinting: font.HintingFull,
+	})
+
 	/**
 	normal size
 	*/
