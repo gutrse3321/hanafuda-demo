@@ -21,21 +21,23 @@ func (o *Over) Update(screen *ebiten.Image) {
 		o.btnBox, _ = ebiten.NewImage(180, 55, ebiten.FilterNearest)
 	}
 	o.btnBox.Fill(color.Black)
-	btnBoxW, _ := o.btnBox.Size()
+	btnBoxW, btnBoxH := o.btnBox.Size()
 	if o.btnBg == nil {
-		o.btnBg, _ = ebiten.NewImage(170, 45, ebiten.FilterNearest)
+		//o.btnBg, _ = ebiten.NewImage(170, 45, ebiten.FilterNearest)
+		bg, _ := ebiten.NewImage(170, 45, ebiten.FilterNearest)
+		btnBgW, btnBgH := bg.Size()
+		bg.Fill(color.NRGBA{R: 139, G: 137, B: 112, A: 0xff})
+		bgOpt := &ebiten.DrawImageOptions{}
+		bgOpt.GeoM.Translate(float64((btnBoxW-btnBgW)/2), float64((btnBoxH-btnBgH)/2))
+		o.btnBox.DrawImage(bg, bgOpt)
+
 	}
-	o.btnBg.Fill(color.NRGBA{R: 139, G: 137, B: 112, A: 0xff})
-	btnBgW, _ := o.btnBg.Size()
 
 	boxOpt := &ebiten.DrawImageOptions{}
-	bgOpt := &ebiten.DrawImageOptions{}
 
 	boxOpt.GeoM.Translate(float64(constant.ScreenWidth/2-btnBoxW/2), float64(constant.ScreenHeight-200))
-	bgOpt.GeoM.Translate(float64(constant.ScreenWidth/2-btnBgW/2), float64(constant.ScreenHeight-200+5))
 
 	screen.DrawImage(o.btnBox, boxOpt)
-	screen.DrawImage(o.btnBg, bgOpt)
 
 	text.Draw(screen, "Restart", common.FontObject.FontFiraCode, constant.ScreenWidth/2-(8*6), constant.ScreenHeight-200+35, color.White)
 	if ebiten.IsMouseButtonPressed(ebiten.MouseButtonLeft) {
