@@ -12,6 +12,12 @@ import (
 type Game struct {
 }
 
+var (
+	titleScene scenes.Title
+	gameScene  scenes.Game
+	overScene  scenes.Over
+)
+
 func (g *Game) init() {
 	fontModel := &common.Font{}
 	spritesModel := &sprites.Sprites{}
@@ -24,13 +30,10 @@ func (g *Game) Update(screen *ebiten.Image) error {
 
 	switch constant.GameMode {
 	case constant.ModeTitle:
-		titleScene := scenes.Title{}
 		titleScene.Update(screen)
 	case constant.ModeGame:
-		gameScene := scenes.Game{}
 		gameScene.Update(screen)
 	case constant.ModeGameOver:
-		overScene := scenes.Over{}
 		overScene.Update(screen)
 	}
 
